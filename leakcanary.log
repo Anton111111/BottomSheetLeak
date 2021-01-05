@@ -1,0 +1,85 @@
+  ┬───
+    │ GC Root: System class
+    │
+    ├─ android.view.inputmethod.InputMethodManager class
+    │    Leaking: NO (InputMethodManager↓ is not leaking and a class is never leaking)
+    │    ↓ static InputMethodManager.sInstance
+    ├─ android.view.inputmethod.InputMethodManager instance
+    │    Leaking: NO (DecorView↓ is not leaking and InputMethodManager is a singleton)
+    │    ↓ InputMethodManager.mCurRootView
+    ├─ com.android.internal.policy.DecorView instance
+    │    Leaking: NO (LinearLayout↓ is not leaking and View attached)
+    │    View is part of a window view hierarchy
+    │    View.mAttachInfo is not null (view attached)
+    │    View.mWindowAttachCount = 1
+    │    mContext instance of com.android.internal.policy.DecorContext, wrapping activity com.example.anton111111.
+    │    MainActivity with mDestroyed = false
+    │    ↓ DecorView.mContentRoot
+    ├─ android.widget.LinearLayout instance
+    │    Leaking: NO (MainActivity↓ is not leaking and View attached)
+    │    View is part of a window view hierarchy
+    │    View.mAttachInfo is not null (view attached)
+    │    View.mWindowAttachCount = 1
+    │    mContext instance of com.example.anton111111.MainActivity with mDestroyed = false
+    │    ↓ View.mContext
+    ├─ com.example.anton111111.MainActivity instance
+    │    Leaking: NO (MainFragment↓ is not leaking and Activity#mDestroyed is false)
+    │    mApplication instance of android.app.Application
+    │    mBase instance of androidx.appcompat.view.ContextThemeWrapper
+    │    ↓ ComponentActivity.mOnBackPressedDispatcher
+    ├─ androidx.activity.OnBackPressedDispatcher instance
+    │    Leaking: NO (MainFragment↓ is not leaking)
+    │    ↓ OnBackPressedDispatcher.mOnBackPressedCallbacks
+    ├─ java.util.ArrayDeque instance
+    │    Leaking: NO (MainFragment↓ is not leaking)
+    │    ↓ ArrayDeque.elements
+    ├─ java.lang.Object[] array
+    │    Leaking: NO (MainFragment↓ is not leaking)
+    │    ↓ Object[].[1]
+    ├─ androidx.fragment.app.FragmentManager$1 instance
+    │    Leaking: NO (MainFragment↓ is not leaking)
+    │    Anonymous subclass of androidx.activity.OnBackPressedCallback
+    │    ↓ FragmentManager$1.this$0
+    ├─ androidx.fragment.app.FragmentManagerImpl instance
+    │    Leaking: NO (MainFragment↓ is not leaking)
+    │    ↓ FragmentManager.mParent
+    ├─ com.example.anton111111.MainFragment instance
+    │    Leaking: NO (Fragment#mFragmentManager is not null)
+    │    ↓ MainFragment.bottomSheet
+    │                   ~~~~~~~~~~~
+    ├─ com.example.anton111111.MyBottomSheetDialog instance
+    │    Leaking: UNKNOWN
+    │    Retaining 115,8 kB in 1870 objects
+    │    mContext instance of android.view.ContextThemeWrapper, wrapping activity com.example.anton111111.MainActivity with
+    │    mDestroyed = false
+    │    Dialog#mDecor is null
+    │    ↓ Dialog.mWindow
+    │             ~~~~~~~
+    ├─ com.android.internal.policy.MiuiPhoneWindow instance
+    │    Leaking: UNKNOWN
+    │    Retaining 15,5 kB in 293 objects
+    │    mContext instance of android.view.ContextThemeWrapper, wrapping activity com.example.anton111111.MainActivity with
+    │    mDestroyed = false
+    │    Window#mDestroyed is false
+    │    ↓ PhoneWindow.mDecor
+    │                  ~~~~~~
+    ╰→ com.android.internal.policy.DecorView instance
+    �     Leaking: YES (ObjectWatcher was watching this because com.android.internal.policy.DecorView received
+    �     View#onDetachedFromWindow() callback)
+    �     Retaining 2,7 kB in 48 objects
+    �     key = 6926a1af-7a43-4047-9a76-91a099507a62
+    �     watchDurationMillis = 12581
+    �     retainedDurationMillis = 7575
+    �     View not part of a window view hierarchy
+    �     View.mAttachInfo is null (view detached)
+    �     View.mWindowAttachCount = 1
+    �     mContext instance of android.view.ContextThemeWrapper, wrapping activity com.example.anton111111.MainActivity
+    �     with mDestroyed = false
+    
+    METADATA
+    
+    Build.VERSION.SDK_INT: 29
+    Build.MANUFACTURER: Xiaomi
+    LeakCanary version: 2.6
+    App process name: com.example.anton111111
+    Stats: LruCache[maxSize=3000,hits=3296,misses=59898,hitRat
